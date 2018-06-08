@@ -1,12 +1,11 @@
 FROM mhart/alpine-node:latest
 
-LABEL maintainer="maxwell.simmer@gmail.com"
-
 # Build-time metadata as defined at http://label-schema.org
 ARG BUILD_DATE
 ARG VCS_REF
 ARG IMAGE_VERSION
-LABEL org.label-schema.build-date=$BUILD_DATE \
+LABEL maintainer="maxwell.simmer@gmail.com" \
+      org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.name="b-ber" \
       org.label-schema.description="A Docker image for creating b-ber projects" \
       org.label-schema.url="https://www.canopycanopycanopy.com/" \
