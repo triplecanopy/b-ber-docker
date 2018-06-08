@@ -2,6 +2,20 @@ FROM mhart/alpine-node:latest
 
 LABEL maintainer="maxwell.simmer@gmail.com"
 
+# Build-time metadata as defined at http://label-schema.org
+ARG BUILD_DATE
+ARG VCS_REF
+ARG IMAGE_VERSION
+LABEL org.label-schema.build-date=$BUILD_DATE \
+      org.label-schema.name="b-ber" \
+      org.label-schema.description="A Docker image for creating b-ber projects" \
+      org.label-schema.url="https://www.canopycanopycanopy.com/" \
+      org.label-schema.vcs-ref=$VCS_REF \
+      org.label-schema.vcs-url="https://github.com/triplecanopy/b-ber-docker" \
+      org.label-schema.vendor="Triple Canopy" \
+      org.label-schema.version=$IMAGE_VERSION \
+      org.label-schema.schema-version="1.0"
+
 ENV CALIBRE_SOURCE_URL https://raw.githubusercontent.com/kovidgoyal/calibre/master/setup/linux-installer.py
 ENV PATH $PATH:/opt/calibre/bin
 
