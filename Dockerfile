@@ -33,6 +33,7 @@ RUN apk update && apk upgrade && apk add \
     xdg-utils \
     xz \
     \
+    && wget -qO- "https://github.com/dustinblackman/phantomized/releases/download/2.1.1a/dockerized-phantomjs.tar.gz" | tar xz -C / \
     && wget -O- ${CALIBRE_SOURCE_URL} | python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main(install_dir='/opt', isolated=True)" \
     && rm -rf /tmp/calibre-installer-cache \
     && pip install -U pip \
