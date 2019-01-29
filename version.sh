@@ -33,20 +33,33 @@ function bump {
         verkey=2
         ;;
         *)
-        help
+        verkey=""
         ;;
     esac
 
+    if [ -z "$verkey" ]; then
+        echo $verkey
+        exit
+    fi
+
     next=$((${version[$verkey]} + 1))
     version[$verkey]=$next
+
+    i=$(($verkey + 1))
+    while [ $i -lt 3 ]; do
+        version[$i]=0
+        i=$(($i + 1))
+    done
+
     updated=$(join . "${version[@]}")
 
     echo "$updated"
 }
 
-test -z "$(git status --porcelain)" || help
-
 version=$(bump $1)
+
+test -z "$(git status --porcelain)" || help
+test -z "$version" && help
 
 git tag -a "$version" -m "v$version"
 echo "$version"
