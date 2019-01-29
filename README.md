@@ -7,3 +7,27 @@
 
 A Dockerfile for creating b-ber projects
 
+## Build
+
+```
+$ docker build . -t bber -f ./Dockerfile
+```
+
+## Run
+
+```
+$ docker run -dit bber
+```
+
+## Test
+
+```
+$ docker exec -it <name> /bin/bash
+```
+
+## Publish
+
+```
+$ ./version # <major|minor|patch>
+$ ./publish
+```

@@ -31,10 +31,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /tmp/calibre-installer-cache \
     && pip install -U pip \
     && pip install awscli \
-    && pip uninstall pip \
     && npm i -g \
     node-sass \
     phantomjs-prebuilt \
-    --unsafe-perm \
-    && apt-get remove --purge \
-    wget
+    --unsafe-perm
