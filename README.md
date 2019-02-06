@@ -28,6 +28,6 @@ $ docker exec -it <name> /bin/bash
 ## Publish
 
 ```
-$ ./version # <major|minor|patch>
-$ ./publish
+$ ./version.sh # <major|minor|patch>
+$ ./publish.sh
 ```
