@@ -18,11 +18,21 @@ echo "  VCS URL: $VCS_URL"
 echo "  Build Date: $BUILD_DATE"
 echo
 
-docker build --build-arg VCS_REF="$VCS_REF" \
-             --build-arg VCS_REF="$VCS_URL" \
-             --build-arg BUILD_DATE="$BUILD_DATE" \
-             --build-arg IMAGE_VERSION="$IMAGE_VERSION" \
-             --build-arg LICENSE="MIT" \
-             -t "$IMAGE_NAME":"$IMAGE_VERSION" .
-docker tag "$IMAGE_ID" "$IMAGE_NAME":"$IMAGE_VERSION"
-docker push "$IMAGE_NAME":"$IMAGE_VERSION"
+function deploy {
+    docker build --build-arg VCS_REF="$VCS_REF" \
+                 --build-arg VCS_REF="$VCS_URL" \
+                 --build-arg BUILD_DATE="$BUILD_DATE" \
+                 --build-arg IMAGE_VERSION="$IMAGE_VERSION" \
+                 --build-arg LICENSE="MIT" \
+                 -t "$IMAGE_NAME":"$IMAGE_VERSION" .
+    docker tag "$IMAGE_ID" "$IMAGE_NAME":"$IMAGE_VERSION"
+    docker push "$IMAGE_NAME":"$IMAGE_VERSION"
+}
+
+while true; do
+    read -p "Does this look OK? [yN] " yn
+    case $yn in
+        [Yy]* ) deploy; break;;
+        * ) exit;;
+    esac
+done
