@@ -10,13 +10,13 @@ A Dockerfile for creating b-ber projects
 ## Build
 
 ```
-$ docker build . -t bber -f ./Dockerfile
+$ docker build . -t canopycanopycanopy/b-ber -f ./Dockerfile
 ```
 
 ## Run
 
 ```
-$ docker run -dit bber
+$ docker run -dit canopycanopycanopy/b-ber
 ```
 
 ## Test
