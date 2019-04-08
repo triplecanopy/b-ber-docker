@@ -20,10 +20,9 @@ echo
 
 function deploy {
     docker build --build-arg VCS_REF="$VCS_REF" \
-                 --build-arg VCS_REF="$VCS_URL" \
+                 --build-arg VCS_URL="$VCS_URL" \
                  --build-arg BUILD_DATE="$BUILD_DATE" \
                  --build-arg IMAGE_VERSION="$IMAGE_VERSION" \
-                 --build-arg LICENSE="MIT" \
                  -t "$IMAGE_NAME":"$IMAGE_VERSION" .
     docker tag "$IMAGE_ID" "$IMAGE_NAME":"$IMAGE_VERSION"
     docker push "$IMAGE_NAME":"$IMAGE_VERSION"
