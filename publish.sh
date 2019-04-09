@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+status=$(docker info > /dev/null 2>&1)
+if [[ $? -ne 0 ]]; then
+    echo "Ensure the docker daemon is running before publishing"
+    exit
+fi
+
 IMAGE_NAME="canopycanopycanopy/b-ber"
 read -ra IMAGE_VERSION <<< "$(git describe --abbrev=0 --tags)"
 read -ra IMAGE_ID <<< "$(docker images --filter reference=$IMAGE_NAME -q)"
