@@ -22,19 +22,19 @@ ENV CALIBRE_SOURCE_URL https://raw.githubusercontent.com/kovidgoyal/calibre/mast
 ENV PATH $PATH:/opt/calibre
 
 RUN apt-get update && apt-get install -y \
-    wget \
-    python \
-    xz-utils \
-    xdg-utils \
-    python-pip \
-    zip \
-    python-dev \
-    default-jre \
-    && wget -O- ${CALIBRE_SOURCE_URL} | python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main(install_dir='/opt', isolated=True)" \
-    && rm -rf /tmp/calibre-installer-cache \
-    && pip install -U pip \
-    && pip install awscli \
-    && npm i -g \
-    node-sass \
-    phantomjs-prebuilt \
-    --unsafe-perm
+  wget \
+  python \
+  xz-utils \
+  xdg-utils \
+  python-pip \
+  zip \
+  python-dev \
+  default-jre \
+  && wget -O- ${CALIBRE_SOURCE_URL} | python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main(install_dir='/opt', isolated=True)" \
+  && rm -rf /tmp/calibre-installer-cache \
+  && pip install -U pip \
+  && pip install awscli \
+  && npm i -g \
+  node-sass \
+  phantomjs-prebuilt \
+  --unsafe-perm
