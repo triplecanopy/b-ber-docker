@@ -1,4 +1,4 @@
-FROM node:10.15-jessie
+FROM node:12.7-buster
 
 # Build-time metadata as defined at http://label-schema.org
 ARG BUILD_DATE

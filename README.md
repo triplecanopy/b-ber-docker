@@ -10,24 +10,24 @@ A Dockerfile for creating b-ber projects
 ## Build
 
 ```
-$ docker build . -t canopycanopycanopy/b-ber -f ./Dockerfile
+docker build . -t canopycanopycanopy/b-ber -f ./Dockerfile
 ```
 
 ## Run
 
 ```
-$ docker run -dit canopycanopycanopy/b-ber
+docker run -dit canopycanopycanopy/b-ber
 ```
 
 ## Test
 
 ```
-$ docker exec -it <name> /bin/bash
+docker exec -it <name> /bin/bash
 ```
 
 ## Publish
 
 ```
-$ ./version.sh # <major|minor|patch>
-$ ./publish.sh
+./version.sh # <major|minor|patch>
+./publish.sh
 ```
