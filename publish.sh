@@ -1,10 +1,14 @@
 #!/usr/bin/env bash
 
+# Check that Docker is running
 status=$(docker info > /dev/null 2>&1)
 if [[ $? -ne 0 ]]; then
     echo "Ensure the docker daemon is running before publishing"
     exit
 fi
+
+# Verify credentials so that docker push doesn't bail
+docker login
 
 IMAGE_NAME="canopycanopycanopy/b-ber"
 read -ra IMAGE_VERSION <<< "$(git describe --abbrev=0 --tags)"
@@ -13,7 +17,7 @@ read -ra VCS_URL <<< "$(git config --get remote.origin.url)"
 BUILD_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 
 echo
-echo "  Building:"
+echo "Building..."
 echo
 echo "  Image Name: $IMAGE_NAME"
 echo "  Image Version: $IMAGE_VERSION"
@@ -35,8 +39,9 @@ function deploy {
     docker push "$IMAGE_NAME":"$IMAGE_VERSION"
 }
 
+# Confirm deploy
 while true; do
-    read -p "Does this look OK? [yN] " yn
+    read -p "  Does this look OK? [yN] " yn
     case $yn in
         [Yy]* ) deploy; break;;
         * ) exit;;
