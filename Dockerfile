@@ -30,10 +30,10 @@ RUN apt-get update && apt-get install -y \
   zip \
   python-dev \
   default-jre \
-  && wget -O- ${CALIBRE_SOURCE_URL} | python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main(install_dir='/opt', isolated=True)" \
+  && wget -O- ${CALIBRE_SOURCE_URL} | python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main(install_dir='/opt', isolated=True, version='3.48.0')" \
   && rm -rf /tmp/calibre-installer-cache \
-  && pip install -U pip \
-  && pip install awscli \
+  && python -m pip install -U pip \
+  awscli \
   && npm i -g \
   node-sass \
   --unsafe-perm
