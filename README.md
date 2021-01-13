@@ -7,6 +7,12 @@
 
 A Dockerfile for creating b-ber projects
 
+## Pull
+
+```
+docker pull canopycanopycanopy/b-ber:v0.3.1
+```
+
 ## Build
 
 ```
