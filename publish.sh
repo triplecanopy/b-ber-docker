@@ -1,16 +1,22 @@
 #!/usr/bin/env bash
 
+IMAGE_NAME="canopycanopycanopy/b-ber"
+
 # Check that Docker is running
-status=$(docker info > /dev/null 2>&1)
+check_docker_status=$(docker info > /dev/null 2>&1)
 if [[ $? -ne 0 ]]; then
     echo "Ensure the docker daemon is running before publishing"
+    exit
+fi
+
+if [[ -n $(docker images --filter reference=$IMAGE_NAME -q) ]]; then
+    echo "Remove existing image before proceeding by running \`docker rmi $IMAGE_NAME\`"
     exit
 fi
 
 # Verify credentials so that docker push doesn't bail
 docker login
 
-IMAGE_NAME="canopycanopycanopy/b-ber"
 read -ra IMAGE_VERSION <<< "$(git describe --abbrev=0 --tags)"
 read -ra VCS_REF <<< "$(git rev-parse --short HEAD)"
 read -ra VCS_URL <<< "$(git config --get remote.origin.url)"
