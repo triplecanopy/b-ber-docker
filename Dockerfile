@@ -1,4 +1,4 @@
-FROM node:12.7-buster
+FROM node:16.14
 
 # Build-time metadata as defined at http://label-schema.org
 ARG BUILD_DATE
@@ -20,6 +20,7 @@ LABEL org.label-schema.schema-version="1.0"
 
 # Download URL and source path for calibre
 ENV CALIBRE_SOURCE_URL https://raw.githubusercontent.com/kovidgoyal/calibre/master/setup/linux-installer.py
+ENV CALIBRE_INSTALL_SCRIPT="import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main(install_dir='/opt', isolated=True, version='5.10.1')"
 ENV PATH $PATH:/opt/calibre
 
 # ebook-convert options for Qt to allow running as root
@@ -28,18 +29,24 @@ ENV QTWEBENGINE_CHROMIUM_FLAGS "--no-sandbox"
 # Calibre requires this to be set with 7700 when building PDFs
 ENV XDG_RUNTIME_DIR "/home/xdg-runtime"
 
+# Install deps
 RUN apt-get update && apt-get install -y \
   wget \
   python \
+  python-dev \
   xz-utils \
   xdg-utils \
-  python-pip \
   zip \
-  python-dev \
-  default-jre \
-  && wget -O- "${CALIBRE_SOURCE_URL}" | python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main(install_dir='/opt', isolated=True, version='5.10.1')" \
+  default-jre
+
+# Get and install AWS CLI
+RUN wget "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -O "awscliv2.zip" \
+  && unzip awscliv2.zip \
+  && aws/install \
+  && rm awscliv2.zip
+
+# Get and install calibre
+RUN wget -O- "${CALIBRE_SOURCE_URL}" | python -c "${CALIBRE_INSTALL_SCRIPT}" \
   && rm -rf /tmp/calibre-installer-cache \
-  && python -m pip install -U pip awscli \
-  && npm i -g node-sass --unsafe-perm \
   && mkdir "${XDG_RUNTIME_DIR}" \
   && chmod 7700 "${XDG_RUNTIME_DIR}"
