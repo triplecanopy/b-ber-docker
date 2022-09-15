@@ -1,8 +1,8 @@
 # b-ber
 
-[![](https://img.shields.io/docker/v/canopycanopycanopy/b-ber?sort=semver)]("Version")
-[![](https://img.shields.io/docker/image-size/canopycanopycanopy/b-ber?sort=semver)]("Image%20Size")
-[![](https://img.shields.io/github/license/triplecanopy/b-ber-docker)]("License")
+[!["Version"](https://img.shields.io/docker/v/canopycanopycanopy/b-ber?sort=semver)](https://hub.docker.com/r/canopycanopycanopy/b-ber/tags)
+[!["Image Size"](https://img.shields.io/docker/image-size/canopycanopycanopy/b-ber?sort=semver)](https://hub.docker.com/r/canopycanopycanopy/b-ber/tags)
+[!["License"](https://img.shields.io/github/license/triplecanopy/b-ber-docker)](https://github.com/triplecanopy/b-ber-docker/blob/master/LICENSE)
 
 A Dockerfile for creating b-ber projects
 
