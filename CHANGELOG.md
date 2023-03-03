@@ -1,3 +1,7 @@
+## [1.0.1](https://github.com/triplecanopy/b-ber-docker/compare/0.3.3...1.0.1) (2022-02-24)
+
+
+
 ## [0.3.3](https://github.com/triplecanopy/b-ber-docker/compare/0.3.2...0.3.3) (2021-03-15)
 
 
