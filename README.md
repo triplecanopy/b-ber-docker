@@ -36,3 +36,10 @@ docker exec -it <name> /bin/bash
 ./version.sh # <major|minor|patch>
 ./publish.sh
 ```
+
+## Changelog
+
+```
+yarn changelog
+```
+
