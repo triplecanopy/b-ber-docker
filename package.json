@@ -1,0 +1,15 @@
+{
+  "name": "b-ber-docker",
+  "version": "0.3.3",
+  "main": "index.js",
+  "repository": "git@github.com:triplecanopy/b-ber-docker.git",
+  "author": "Maxwell Simmer <maxwell.simmer@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+  },
+  "dependencies": {
+    "conventional-changelog-cli": "^2.2.2"
+  }
+}
