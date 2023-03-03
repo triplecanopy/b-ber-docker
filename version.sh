@@ -65,5 +65,3 @@ git tag -a "$version" -m "v$version"
 echo "$version"
 
 git push origin master --tags
-
-yarn changelog
