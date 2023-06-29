@@ -20,7 +20,7 @@ LABEL org.label-schema.schema-version="1.0"
 
 # Download URL and source path for calibre
 ENV CALIBRE_SOURCE_URL https://raw.githubusercontent.com/kovidgoyal/calibre/master/setup/linux-installer.py
-ENV CALIBRE_INSTALL_SCRIPT="import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main(install_dir='/opt', isolated=True, version='5.10.1')"
+ENV CALIBRE_INSTALL_SCRIPT="import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main(install_dir='/opt', isolated=True, version='5.44.0')"
 ENV PATH $PATH:/opt/calibre
 
 # ebook-convert options for Qt to allow running as root
