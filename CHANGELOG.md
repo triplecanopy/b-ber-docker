@@ -1,3 +1,13 @@
+## [1.0.2](https://github.com/triplecanopy/b-ber-docker/compare/1.0.1...1.0.2) (2023-06-29)
+
+
+### Features
+
+* adds changelog ([76f4de6](https://github.com/triplecanopy/b-ber-docker/commit/76f4de6510474298a76d2bb5ae11346d0e8f576b))
+* updates calibre version ([eaaafba](https://github.com/triplecanopy/b-ber-docker/commit/eaaafba97fdc8ea3521b91240e3d1b2387071122))
+
+
+
 ## [1.0.1](https://github.com/triplecanopy/b-ber-docker/compare/0.3.3...1.0.1) (2022-02-24)
 
 
