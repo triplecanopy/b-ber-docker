@@ -9,7 +9,7 @@ A Dockerfile for creating b-ber projects
 ## Pull
 
 ```
-docker pull canopycanopycanopy/b-ber:1.0.1
+docker pull canopycanopycanopy/b-ber:<version>
 ```
 
 ## Build
@@ -42,4 +42,3 @@ docker exec -it <name> /bin/bash
 ```
 yarn changelog
 ```
-
