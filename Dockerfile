@@ -1,4 +1,4 @@
-FROM node:16.14
+FROM node:18.20
 
 # Build-time metadata as defined at http://label-schema.org
 ARG BUILD_DATE
@@ -32,8 +32,8 @@ ENV XDG_RUNTIME_DIR "/home/xdg-runtime"
 # Install deps
 RUN apt-get update && apt-get install -y \
   wget \
-  python \
-  python-dev \
+  python-is-python3 \
+  2to3 \
   xz-utils \
   xdg-utils \
   zip \
