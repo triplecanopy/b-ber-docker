@@ -15,7 +15,7 @@ docker pull canopycanopycanopy/b-ber:<version>
 ## Build
 
 ```
-docker build . -t canopycanopycanopy/b-ber -f ./Dockerfile
+docker build . -t canopycanopycanopy/b-ber -f ./Dockerfile --platform=linux/amd64
 ```
 
 ## Run
