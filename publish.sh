@@ -37,7 +37,7 @@ function deploy {
                  --build-arg VCS_URL="$VCS_URL" \
                  --build-arg BUILD_DATE="$BUILD_DATE" \
                  --build-arg IMAGE_VERSION="$IMAGE_VERSION" \
-                 -t "$IMAGE_NAME":"$IMAGE_VERSION" .
+                 -t "$IMAGE_NAME":"$IMAGE_VERSION" . --platform=linux/amd64
 
     read -ra IMAGE_ID <<< "$(docker images --filter reference=$IMAGE_NAME -q)"
 
