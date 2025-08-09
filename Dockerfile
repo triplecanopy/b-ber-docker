@@ -39,7 +39,8 @@ RUN apt-get update && apt-get install -y \
   libopengl0 \
   libegl1 \
   libxcb-xinerama0 \
-  libxkbcommon0
+  libxkbcommon0 \
+  libxcb-cursor0
 
 # Get and install AWS CLI
 RUN wget "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -O "awscliv2.zip" \
@@ -47,7 +48,7 @@ RUN wget "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -O "awscliv2
   && aws/install \
   && rm awscliv2.zip
 
-RUN wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sh /dev/stdin install_dir=/opt isolated=y version=6.29.0 \
+RUN wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sh /dev/stdin install_dir=/opt isolated=y version=8.8.0 \
   && rm -rf /tmp/calibre-installer-cache \
   && mkdir "${XDG_RUNTIME_DIR}" \
   && chmod 7700 "${XDG_RUNTIME_DIR}"
